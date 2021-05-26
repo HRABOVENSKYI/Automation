@@ -1,18 +1,19 @@
 package pageobject.pages;
 
 import org.openqa.selenium.WebDriver;
-
-import static org.openqa.selenium.By.xpath;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class AppleStorePage extends BasePage {
 
-    public static final String IPHONE_BUTTON = "//div[@class='brand-box__info']//a[text()='iPhone']";
+    @FindBy(xpath = "//div[@class='brand-box__info']//a[text()='iPhone']")
+    private WebElement iPhoneButton;
 
     public AppleStorePage(WebDriver driver) {
         super(driver);
     }
 
     public void clickOnIPhoneButton() {
-        driver.findElement(xpath(IPHONE_BUTTON)).click();
+        iPhoneButton.click();
     }
 }

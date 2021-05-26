@@ -2,21 +2,21 @@ package pageobject.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static org.openqa.selenium.By.xpath;
-
 public class CartPage extends BasePage {
 
-    private static final String ALL_CART_ELEMENTS_XPATH = "//div[@class='cart-parent-limit']/*";
+    @FindBy(xpath = "//div[@class='cart-parent-limit']/*")
+    private List<WebElement> allCartElements;
 
     public CartPage(WebDriver driver) {
         super(driver);
     }
 
     public List<WebElement> getAllCartElements() {
-        return driver.findElements(xpath(ALL_CART_ELEMENTS_XPATH));
+        return allCartElements;
     }
 
     public int getAllCartElementsCount() {

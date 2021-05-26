@@ -22,7 +22,7 @@ public class PreviewPageTests extends BaseTest {
         // Hardcode first element because it is opened by default and we read another instead
         linksToImages.set(0, "https://avic.ua/assets/cache/sliders/1/dnipro-25-1031-299.png");
 
-        Assert.assertTrue(areDistinct((ArrayList) getHomePage().getPreviewElements()));
+        Assert.assertTrue(areDistinct(linksToImages));
     }
 
     public boolean areDistinct(List<String> linksList) {

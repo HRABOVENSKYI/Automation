@@ -2,24 +2,30 @@ package pageobject.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static org.openqa.selenium.By.xpath;
-
 public class SearchResultPage extends BasePage {
 
-    private static final String SEARCH_RESULT_PRODUCT_LIST = "//div[@class='prod-cart__descr']";
-    private static final String SECOND_SEARCH_RESULT_PAGE = "//li[@data-paginator='2']/a";
-    private static final String THIRD_SEARCH_RESULT_PAGE = "//li[@data-paginator='3']/a";
-    private static final String SHOW_MORE_ELEMENTS = "//a[@class='btn-see-more js_show_more']";
+    @FindBy(xpath = "//div[@class='prod-cart__descr']")
+    private List<WebElement> searchResultProductList;
+
+    @FindBy(xpath = "//li[@data-paginator='2']/a")
+    private WebElement secondSearchResultPage;
+
+    @FindBy(xpath = "//li[@data-paginator='3']/a")
+    private WebElement thirdSearchResultPage;
+
+    @FindBy(xpath = "//a[@class='btn-see-more js_show_more']")
+    private WebElement showMoreElements;
 
     public SearchResultPage(WebDriver driver) {
         super(driver);
     }
 
     public List<WebElement> getSearchResultList() {
-        return driver.findElements(xpath(SEARCH_RESULT_PRODUCT_LIST));
+        return searchResultProductList;
     }
 
     public int getSearchResultCount() {
@@ -27,14 +33,14 @@ public class SearchResultPage extends BasePage {
     }
 
     public void goToSecondSearchResultPage() {
-        driver.findElement(xpath(SECOND_SEARCH_RESULT_PAGE)).click();
+        secondSearchResultPage.click();
     }
 
     public void goToThirdSearchResultPage() {
-        driver.findElement(xpath(THIRD_SEARCH_RESULT_PAGE)).click();
+        thirdSearchResultPage.click();
     }
 
     public void showMoreElements() {
-        driver.findElement(xpath(SHOW_MORE_ELEMENTS)).click();
+        showMoreElements.click();
     }
 }
