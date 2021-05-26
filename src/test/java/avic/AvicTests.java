@@ -43,13 +43,13 @@ public class AvicTests {
         driver.close();
     }
 
-    @Test(enabled = false)
+    @Test
     public void checkThatUrlContainsSearchWord() {
         driver.findElement(xpath("//input[@id='input_search']")).sendKeys("iPhone 11", Keys.ENTER);
         assertTrue(driver.getCurrentUrl().contains("query=iPhone+11"));
     }
 
-    @Test(enabled = false)
+    @Test
     public void checkElementsAmountOnSearchPages() {
         driver.findElement(xpath("//input[@id='input_search']")).sendKeys("iPhone 11", Keys.ENTER);
 
@@ -71,7 +71,7 @@ public class AvicTests {
         assertEquals(actualElementSize3, 12);
     }
 
-    @Test(enabled = false)
+    @Test
     public void checkElementsAmountAfterClickOnShowTwelveMoreElements() {
         driver.findElement(xpath("//input[@id='input_search']")).sendKeys("iPhone 11", Keys.ENTER);
 
@@ -103,7 +103,7 @@ public class AvicTests {
         assertEquals(actualElementSize3, 48);
     }
 
-    @Test(enabled = false)
+    @Test
     public void checkThatSearchResultsContainsSearchWord() {
         driver.findElement(xpath("//input[@id='input_search']")).sendKeys("iPhone 11", ENTER);
         List<WebElement> elementList = driver.findElements(xpath("//div[@class='prod-cart__descr']"));
@@ -130,7 +130,7 @@ public class AvicTests {
         assertEquals(elementList.size(), 1);
     }
 
-    @Test(enabled = false)
+    @Test
     public void checkIfAllLinksToPreviewImagesAreDifferent() {
         List<WebElement> elementList = driver.findElements(xpath("//div[@class='main-slider']//div[@class='swiper-wrapper']/div[contains(@class, 'swiper-slide')]/a/img"));
 
